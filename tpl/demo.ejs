@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/a.css">
+    <!-- <link rel="stylesheet" href="/css/a.css"> -->
+    <!-- nginx 映射兼容 -->
+    <link rel="stylesheet" href="<%= prefix ? prefix :'' %>/css/a.css">
     <% if(links) { %>
         <% links.forEach( function (link) { %>
-            <link rel ="stylesheet" href="<%= link %>">
+            <link rel ="stylesheet" href="<%= (prefix ? prefix :'') + link %>">
         <%}); %>
     <% } %>
 </head>
 <body>
     
-    <script src="/js/jquery-3.3.1.js"></script>
-    <script src="/js/a.js"></script>
+    <script src="<%= prefix ? prefix :'' %>/js/jquery-3.3.1.js"></script>
+    <script src="<%= prefix ? prefix :'' %>/js/a.js"></script>
     <% if(jss) { %>
         <% jss.forEach( function (js) { %>
-            <script src="<%= js %>"></script>
+            <script src="<%= (prefix ? prefix :'') + js %>"></script>
         <%}); %>
     <% } %>
     <script>
