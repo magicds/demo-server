@@ -1,0 +1,1 @@
+$('<p>this is t1.js\'s output</p>').appendTo('body')
