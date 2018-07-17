@@ -11,10 +11,14 @@
     <!-- nginx 映射兼容 -->
     <script src="<%= prefix ? prefix :'' %>/webapp/fui/js/cssboot-demo.js"></script>
     <link rel="stylesheet" href="<%= prefix ? prefix :'' %>/css/a.css">
-    <% if(links) { %>
-        <% links.forEach( function (link) { %>
-            <link rel ="stylesheet" href="<%= (prefix ? prefix :'') + link %>">
-        <%}); %>
+    <% if(links && links.length) { %>
+        <!--<% links.forEach( function (link) { %>
+             <link rel ="stylesheet" href="<%= (prefix ? prefix :'') + link %>"> 
+        <%}); %>-->
+        <script>
+            
+            SrcBoot.output(["<%- links.join('","') %>"]);
+        </script>
     <% } %>
     <!-- style -->
     <% if(style) { %>
@@ -24,15 +28,18 @@
     <% } %>
 </head>
 <body>
-    <div class="demo">
-        <!-- demo html -->
-        <%- html %>
-    </div>
+    <!-- demo html -->
+    <%- html %>
+
     <script src="<%= prefix ? prefix :'' %>/webapp/fui/js/jsboot.js"></script>
-    <% if(jss) { %>
-        <% jss.forEach( function (js) { %>
+    <% if(jss && jss.length) { %>
+        <!-- <% jss.forEach( function (js) { %>
             <script src="<%= (prefix ? prefix :'') + js %>"></script>
-        <%}); %>
+        <%}); %> -->
+        <script>
+            SrcBoot.output(["<%- jss.join('","') %>"]);
+        </script>
+
     <% } %>
     <script>
         <%- script %>

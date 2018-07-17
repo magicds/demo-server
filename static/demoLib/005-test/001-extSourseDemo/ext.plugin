@@ -1,0 +1,4 @@
+{
+    "css": ["fui/css/themes/grace/skins/red/skin.css"],
+    "js": ["fui/js/widgets/epcontrols/epoint.control.js", "fui/js/widgets/epcontrols/calendar/calendar.js"]
+}
