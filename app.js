@@ -10,23 +10,25 @@ app.use(express.static(path.join(__dirname, 'static')))
 app.set("views", path.join(__dirname, "tpl"))
 app.set('view engine', 'ejs')
 
-app.get('/index.html', function (req, res) {
+app.get('/demo.html', function (req, res) {
     console.log(req.headers)
-    // res.send(JSON.stringify(req.headers))
-    // res.send(util.inspect(req.headers,{depth:null}))
     let data = {
+        title: '测试demo',
+        // 额外引入的css文件
         links: ['/css/t1.css'],
+        // style 样式
+        style: '.demo{background:#000;color:#fff}',
+        // html
+        html: '<span>demo演示</span>',
+        // 额外引入的 js
         jss: ['/js/t1.js'],
-        script: 'alert(\'t1\')'
+        // script 
+        script: 'alert(\'t1\');'
     }
     data.prefix = req.headers.isexternal;
-    // if(req.headers.isexternal) {
-    //     data.links[0] = req.headers.isexternal + data.links[0]
-    //     data.jss[0] = req.headers.isexternal + data.jss[0]
-    // }
     res.render("demo", data)
 })
 
 const server = app.listen('1120', function () {
-    console.log('express start at http://%s:%s', server.address().address, server.address().port)
+    console.log('express start at http://localhost:%s', server.address().port)
 })

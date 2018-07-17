@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="/css/a.css"> -->
+    <title><%= title %></title>
+    <script>
+        window._rootPath = '<%= prefix ? prefix :'' %>/webapp';
+    </script>
     <!-- nginx 映射兼容 -->
+    <script src="<%= prefix ? prefix :'' %>/webapp/fui/js/cssboot-demo.js"></script>
     <link rel="stylesheet" href="<%= prefix ? prefix :'' %>/css/a.css">
     <% if(links) { %>
         <% links.forEach( function (link) { %>
             <link rel ="stylesheet" href="<%= (prefix ? prefix :'') + link %>">
         <%}); %>
     <% } %>
+    <!-- style -->
+    <% if(style) { %>
+        <style>
+            <%- style %>
+        </style>
+    <% } %>
 </head>
 <body>
-    
-    <script src="<%= prefix ? prefix :'' %>/js/jquery-3.3.1.js"></script>
-    <script src="<%= prefix ? prefix :'' %>/js/a.js"></script>
+    <div class="demo">
+        <!-- demo html -->
+        <%- html %>
+    </div>
+    <script src="<%= prefix ? prefix :'' %>/webapp/fui/js/jsboot.js"></script>
     <% if(jss) { %>
         <% jss.forEach( function (js) { %>
             <script src="<%= (prefix ? prefix :'') + js %>"></script>
